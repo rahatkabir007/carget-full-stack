@@ -1,0 +1,17 @@
+.login-section{
+    background-image: url('https://images.pexels.com/photos/638479/pexels-photo-638479.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Mobile device */
+ @media only screen and (max-width:688px){
+     .login-section{
+         height: 115vh;
+     }
+     .login-form{
+         width: 80% !important;
+     }
+ }

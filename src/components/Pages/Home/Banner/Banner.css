@@ -40,8 +40,12 @@
 
 
  @media only screen and (max-width:688px) {
+     .banner-section{
+         height: 125vh;
+     }
      .row-area{
          top: 55%;
+          left: 52.5%;
      }
      .left-banner-area{
          text-align: center;
