@@ -1,0 +1,50 @@
+.navbar-area{
+    background-color: #000000;
+}
+.logo-area{
+    width: 10%;
+}
+.logo{
+    width: 100%;
+}
+.nav-area a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+}
+.nav-area a:hover{
+    color: #f18d4d;
+    transition: 0.5s;
+    border-bottom: 2px solid #f18d4d ;
+}
+
+/* Mobile device */
+ @media only screen and (max-width:688px) {
+.logo-area{
+    width: 30%;
+}
+.logo{
+    width: 100%;
+}
+.nav-area a{
+    margin: 0 auto;
+}
+
+}
+
+
+ /* Tab */
+ @media only screen and (min-width: 688px) and (max-width: 992px) {
+     .logo-area{
+    width: 30%;
+}
+.logo{
+    width: 100%;
+}
+.nav-area a{
+    margin: 0 auto;
+}
+
+}

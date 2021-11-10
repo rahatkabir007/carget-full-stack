@@ -1,0 +1,65 @@
+.banner-section{
+    position: absolute;
+    background-image: url("https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    
+}
+.row-area{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    background-color: rgba(0,0,0,0.7);
+    border: 10px solid #f18d4d;
+    padding: 40px 30px;
+}
+
+.left-banner-area{
+    padding: 20px;
+    color: white;
+    line-height: 60px;
+}
+.primary-btn{
+    background-color: #f18d4d;
+    padding: 10px 20px;
+    color: black;
+    border: none;
+}
+.primary-btn:hover{
+    background-color: white;
+    color: black;
+    transition: 0.8s;
+}
+
+
+ @media only screen and (max-width:688px) {
+     .row-area{
+         top: 55%;
+     }
+     .left-banner-area{
+         text-align: center;
+     }
+.right-banner-area{
+    display: none;
+}
+ }
+
+  /* Tab */
+ @media only screen and (min-width: 688px) and (max-width: 992px) {
+         .row-area{
+         top: 55%;
+     }
+     .left-banner-area{
+         text-align: center;
+     }
+.right-banner-area{
+    display: none;
+}
+ }
