@@ -1,31 +1,44 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import './Navigation.css';
+import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Box } from '@mui/system';
 const Navigation = () => {
+    const { user, logOut } = useAuth();
     return (
         <>
             <Navbar collapseOnSelect expand="lg" sticky="top" className="navbar-area">
                 <Container>
                     <Navbar.Brand className="logo-area me-auto"><img src={logo} className="logo" alt="CARGET" /></Navbar.Brand>
-                    <Navbar.Toggle style={{ backgroundColor: '#f18d4d'}} aria-controls="responsive-navbar-nav" />
+                    <Navbar.Toggle style={{ backgroundColor: '#f18d4d' }} aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mx-auto nav-area">
-                            <Link to='/home'>Home</Link>
-                            <Link to='/explore'>Explore</Link>
-                            <Link to='/about'>About</Link>
+                        <Nav className="nav-area" id="left-nav">
+                            <NavLink to='/home'>Home</NavLink>
+                            <NavLink to='/explore'>Explore</NavLink>
+                            <NavLink to='/about'>About</NavLink>
                         </Nav>
-                        <Nav className="nav-area ms-end">
-                            <Link to='/dashboard'>Dashboard</Link>
-                            <Link to='/login'>
-                               Login
-                            </Link>
+                        <Nav className="nav-area ms-auto">
+                            {
+                                user?.email ?
+                                    <Box>
+                                        <span style={{ textDecoration: 'none', color: 'white' }}>User: {user?.displayName}</span>
+                                        <NavLink to='/dashboard'>Dashboard</NavLink>
+                                        <NavLink onClick={logOut} to='/home'>Logout</NavLink>
+
+                                    </Box> :
+                                    <NavLink to='/login'>
+                                        Login
+                                    </NavLink>
+                            }
+
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-           
+
         </>
     );
 };

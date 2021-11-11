@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,22 +10,95 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navigation from '../../Shared/Navigation/Navigation';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Register.css';
-
+import useAuth from '../../../hooks/useAuth';
+import { Alert, CircularProgress } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const theme = createTheme();
 
 export default function SignUp() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+
+    //accessing useAuth which represents useFirebase;
+    const { registerUser, isLoading, success, authError, setAuthError } = useAuth();
+
+    //we will set our input datas on this state as object
+    const [registerData, setRegisterData] = useState({});
+
+    const [match, setMatch] = useState('');
+
+    const history = useHistory();
+
+
+    //to capture the input value from the input field
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newRegisterData = { ...registerData };
+        newRegisterData[field] = value;
+        setRegisterData(newRegisterData);
+    }
+
+    const handleRegisterSubmit = (e) => {
+        if (registerData.password === registerData.password2) {
+            setMatch('');
+            setAuthError('');
+            registerUser(registerData.email, registerData.password, history, setMatch);
+
+        }
+        else {
+            setMatch("Password Didn't Match");
+            setAuthError('');
+        }
+
+        e.preventDefault();
     };
+
+
+    //circular progress
+    function CircularProgressWithLabel(props) {
+        return (
+            <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+                <CircularProgress style={{ color: '#f18d4d' }} variant="determinate" {...props} />
+                <Box
+                    sx={{
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                        position: 'absolute',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Typography variant="caption" component="div" color="text.secondary">
+                        {`${Math.round(props.value)}%`}
+                    </Typography>
+                </Box>
+            </Box>
+        );
+    }
+
+    CircularProgressWithLabel.propTypes = {
+        /**
+         * The value of the progress indicator for the determinate variant.
+         * Value between 0 and 100.
+         * @default 0
+         */
+        value: PropTypes.number.isRequired,
+    };
+    const [progress, setProgress] = React.useState(10);
+
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
+        }, 800);
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
 
     return (
         <>
@@ -48,26 +121,28 @@ export default function SignUp() {
                             <Typography component="h1" variant="h3" sx={{ color: 'black' }} style={{ textShadow: '2px 2px white' }}>
                                 Register
                             </Typography>
-                            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                            {!isLoading && <Box component="form" onSubmit={handleRegisterSubmit} sx={{ mt: 3 }}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <TextField
+                                            onBlur={handleOnBlur}
                                             color="warning"
-                                            autoComplete="given-name"
-                                            name="firstName"
+                                            name="name"
+                                            type="text"
                                             required
                                             fullWidth
-                                            id="firstName"
-                                            label="First Name"
+                                            id="name"
+                                            label="Name"
                                             autoFocus
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            onBlur={handleOnBlur}
                                             color="warning"
                                             required
                                             fullWidth
-                                            id="email"
+                                            type='email'
                                             label="Email Address"
                                             name="email"
                                             autoComplete="email"
@@ -75,6 +150,7 @@ export default function SignUp() {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            onBlur={handleOnBlur}
                                             color="warning"
                                             required
                                             fullWidth
@@ -85,7 +161,23 @@ export default function SignUp() {
                                             autoComplete="new-password"
                                         />
                                     </Grid>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            onBlur={handleOnBlur}
+                                            color="warning"
+                                            required
+                                            fullWidth
+                                            name="password2"
+                                            label="Re-type your password"
+                                            type="password"
+                                            id="password"
+                                            autoComplete="new-password"
+                                        />
+                                    </Grid>
                                 </Grid>
+                                {match && <Grid item xs={12}><Alert severity="error" style={{ marginTop: '6px' }}>{match}</Alert></Grid>}
+                                {success && <Grid item xs={12}><Alert severity="success" style={{ marginTop: '6px' }}>{success}</Alert></Grid>}
+                                {authError && <Grid item xs={12}> <Alert severity="error" style={{ marginTop: '6px' }}>{authError}</Alert></Grid>}
                                 <Button
                                     style={{ backgroundColor: '#f18d4d' }}
                                     type="submit"
@@ -97,12 +189,15 @@ export default function SignUp() {
                                 </Button>
                                 <Grid container justifyContent="flex-start">
                                     <Grid item>
-                                        <Link to='/login' style={{ color: 'black'}} variant="body2">
+                                        <Link to='/login' style={{ color: 'black' }} variant="body2">
                                             Already have an account? Log in
                                         </Link>
                                     </Grid>
                                 </Grid>
                             </Box>
+                            }
+                            {isLoading && <CircularProgressWithLabel value={progress} />}
+
                         </Box>
                     </Container>
                 </ThemeProvider>

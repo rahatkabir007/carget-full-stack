@@ -8,6 +8,9 @@
 .logo{
     width: 100%;
 }
+#left-nav{
+     margin-left: 30px;
+}
 .nav-area a{
     color: white;
     text-decoration: none;
@@ -29,6 +32,9 @@
 .logo{
     width: 100%;
 }
+#left-nav{
+     margin-left: 0px;
+}
 .nav-area a{
     margin: 0 auto;
 }
@@ -43,6 +49,9 @@
 }
 .logo{
     width: 100%;
+}
+#left-nav{
+     margin-left: 0px;
 }
 .nav-area a{
     margin: 0 auto;

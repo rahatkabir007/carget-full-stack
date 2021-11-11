@@ -13,7 +13,7 @@ const Banner = () => {
                 <Container>
                     <Row className="row-area">
                         <Col lg={6} className="left-banner-area my-5">
-                            <h1>Welcome to <span style={{ color: '#f18d4d', fontWeight: 'bolder' ,textShadow: '4px 4px black'}}>CARGATE</span></h1>
+                            <h1>Welcome to <span style={{ color: '#f18d4d', fontWeight: 'bolder' ,textShadow: '4px 4px black'}}>CARGET</span></h1>
                             <h4>LIFE'S TOO SHORT TO DRIVE BORING CARS</h4>
                             <h5>FIND YOUR DREAM CAR HERE</h5>
                             <Button className="primary-btn">Buy Now</Button>

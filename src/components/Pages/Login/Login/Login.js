@@ -1,31 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { CircularProgress, Alert } from '@mui/material';
+import PropTypes from 'prop-types';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory} from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const theme = createTheme();
 const Login = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+
+    //we will set our input datas on this state as object
+    const [loginData, setLoginData] = useState({});
+    const { signInUsingGoogle, loginUser, isLoading, success, passError } = useAuth();
+
+    //redirect hooks
+    const location = useLocation();
+    const history = useHistory();
+
+    //to capture the input value from the input field
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+
+    const handleLoginSubmit = (e) => {
+        loginUser(loginData.email, loginData.password, location, history);
+
+        e.preventDefault();
+
     };
+
+    //signin with google
+    const handleGoogleSignIn = () => {
+        signInUsingGoogle(location, history);
+    }
+
+
+    //circular progress
+    function CircularProgressWithLabel(props) {
+        return (
+            <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+                <CircularProgress style={{ color: '#f18d4d' }} variant="determinate" {...props} />
+                <Box
+                    sx={{
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                        position: 'absolute',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Typography variant="caption" component="div" color="text.secondary">
+                        {`${Math.round(props.value)}%`}
+                    </Typography>
+                </Box>
+            </Box>
+        );
+    }
+
+    CircularProgressWithLabel.propTypes = {
+        /**
+         * The value of the progress indicator for the determinate variant.
+         * Value between 0 and 100.
+         * @default 0
+         */
+        value: PropTypes.number.isRequired,
+    };
+    const [progress, setProgress] = React.useState(10);
+
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
+        }, 800);
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
+
     return (
         <>
             <div className="login-section">
@@ -45,11 +112,12 @@ const Login = () => {
                             <Avatar sx={{ m: 1, bgcolor: '#f18d4d' }}>
                                 <LockOutlinedIcon />
                             </Avatar>
-                            <Typography component="h1" variant="h3"  sx={{ color: 'black' }} style={{ textShadow: '2px 2px white' }}>
+                            <Typography component="h1" variant="h3" sx={{ color: 'black' }} style={{ textShadow: '2px 2px white' }}>
                                 Log in
                             </Typography>
-                            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }} >
+                            {!isLoading && <Box component="form" onSubmit={handleLoginSubmit} noValidate sx={{ mt: 1 }} >
                                 <TextField
+                                    onBlur={handleOnBlur}
                                     color="warning"
                                     margin="normal"
                                     required
@@ -61,6 +129,7 @@ const Login = () => {
                                     autoFocus
                                 />
                                 <TextField
+                                    onBlur={handleOnBlur}
                                     color="warning"
                                     margin="normal"
                                     required
@@ -71,11 +140,8 @@ const Login = () => {
                                     id="password"
                                     autoComplete="current-password"
                                 />
-                                <FormControlLabel
-                                   
-                                    control={<Checkbox value="remember" color="warning" />}
-                                    label="Remember me"
-                                />
+                                {success && <Grid item xs={12}><Alert severity="success" style={{ marginTop: '6px' }}>{success}</Alert></Grid>}
+                                {passError && <Grid item xs={12}><Alert severity="error" style={{ marginTop: '6px' }}>{passError}</Alert></Grid>}
                                 <Button
                                     style={{ backgroundColor: '#f18d4d' }}
                                     type="submit"
@@ -84,6 +150,16 @@ const Login = () => {
                                     sx={{ mt: 3, mb: 2 }}
                                 >
                                     Log In
+                                </Button>
+                                <Button
+                                    onClick={handleGoogleSignIn}
+                                    style={{ backgroundColor: '#f18d4d' }}
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3, mb: 2 }}
+                                >
+                                    <i className="fab fa-google me-2 border border-1 border-black p-2"></i> Google Login
                                 </Button>
                                 <Grid container>
                                     <Grid item xs>
@@ -97,7 +173,9 @@ const Login = () => {
                                         </Link>
                                     </Grid>
                                 </Grid>
-                            </Box>
+                            </Box>  
+                            }
+                            {isLoading && <CircularProgressWithLabel value={progress} />}
                         </Box>
 
                     </Container>
