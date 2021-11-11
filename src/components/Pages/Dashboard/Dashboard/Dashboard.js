@@ -24,6 +24,7 @@ import ManageOrders from '../Admin/ManageOrders/ManageOrders';
 import ManageProducts from '../Admin/ManageProducts/ManageProducts';
 import Pay from '../User/Pay/Pay';
 import MyOrder from '../User/MyOrder/MyOrder';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 
 const drawerWidth = 200;
@@ -31,7 +32,7 @@ const drawerWidth = 200;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
 
     let { path, url } = useRouteMatch();
 
@@ -40,25 +41,25 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div>
+        <div className="text-center">
             <h1>Home</h1>
             <Toolbar />
             {/* <Divider /> */}
-           
-            <div className="d-flex flex-column ">
+
+            {admin ? <Box>
                 <Link to={`${url}/addproducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Add Products</Button></Link>
                 <Link to={`${url}/manageproducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Manage All Products</Button></Link>
                 <Link to={`${url}/manageorders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Manage All Orders</Button></Link>
-                <Link to={`${url}/makeadmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Make Admin</Button></Link>
-                <Link to={`${url}/myorder`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">My Order</Button></Link>
-                <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Review</Button></Link>
-                <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Pay Now</Button></Link>
+                <Link to={`${url}/makeadmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Make Admin</Button></Link><br/>
                 <Link to='/home' onClick={logOut} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Logout</Button></Link>
-            </div>
-            {/* {admin && <Box>
-                <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Make Admin</Button></Link>
-                <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Add Doctor</Button></Link>
-            </Box>} */}
+            </Box>:
+                <div className="d-flex flex-column ">
+                    <Link to={`${url}/myorder`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">My Orders</Button></Link>
+                    <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Review</Button></Link>
+                    <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Pay Now</Button></Link>
+                    <Link to='/home' onClick={logOut} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Logout</Button></Link>
+                </div>
+        }
 
 
         </div>
@@ -67,7 +68,7 @@ function Dashboard(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex' , textAlign: 'center'}}>
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -141,18 +142,18 @@ function Dashboard(props) {
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>
-                    <Route path={`${path}/addproducts`}>
+                    <AdminRoute path={`${path}/addproducts`}>
                         <AddProducts></AddProducts>
-                    </Route>
-                    <Route path={`${path}/makeadmin`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/makeadmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route path={`${path}/manageorders`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageorders`}>
                         <ManageOrders></ManageOrders>
-                    </Route>
-                    <Route path={`${path}/manageproducts`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageproducts`}>
                         <ManageProducts></ManageProducts>
-                    </Route>
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>

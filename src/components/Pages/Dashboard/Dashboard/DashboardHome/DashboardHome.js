@@ -5,7 +5,7 @@ const DashboardHome = () => {
     const { user } = useAuth();
     return (
         <div>
-            <h2>Welcome to Carget's Dashboard {user?.displayName}!</h2>
+            <h2>Welcome to CARGET's Dashboard {user?.displayName}!</h2>
         </div>
     );
 };
