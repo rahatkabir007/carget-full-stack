@@ -4,7 +4,6 @@ import './Navigation.css';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png';
 import { NavLink } from 'react-router-dom';
-import { Box } from '@mui/system';
 const Navigation = () => {
     const { user, logOut } = useAuth();
     return (
@@ -22,12 +21,11 @@ const Navigation = () => {
                         <Nav className="nav-area ms-auto">
                             {
                                 user?.email ?
-                                    <Box>
-                                        <span style={{ textDecoration: 'none', color: 'white' }}>User: {user?.displayName}</span>
+                                    <div className="hidden-nav">
+                                        <span style={{ textDecoration: 'none', color: 'white', fontSize: '20px'}} id="username">Welcome, {user?.displayName}</span>
                                         <NavLink to='/dashboard'>Dashboard</NavLink>
                                         <NavLink onClick={logOut} to='/home'>Logout</NavLink>
-
-                                    </Box> :
+                                    </div> :
                                     <NavLink to='/login'>
                                         Login
                                     </NavLink>

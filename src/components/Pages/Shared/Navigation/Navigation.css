@@ -38,6 +38,13 @@
 .nav-area a{
     margin: 0 auto;
 }
+.hidden-nav{
+    display: flex;
+    flex-direction: column;
+}
+#username{
+    margin: 2px auto;
+}
 
 }
 
@@ -55,6 +62,13 @@
 }
 .nav-area a{
     margin: 0 auto;
+}
+.hidden-nav{
+    display: flex;
+    flex-direction: column;
+}
+#username{
+    margin: 2px auto;
 }
 
 }

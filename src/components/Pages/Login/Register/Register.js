@@ -44,7 +44,7 @@ export default function SignUp() {
         if (registerData.password === registerData.password2) {
             setMatch('');
             setAuthError('');
-            registerUser(registerData.email, registerData.password, history, setMatch);
+            registerUser(registerData.email, registerData.password, registerData.name, history, setMatch);
 
         }
         else {

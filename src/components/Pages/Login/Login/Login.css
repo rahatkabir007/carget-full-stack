@@ -3,13 +3,13 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 110vh;
 }
 
 /* Mobile device */
  @media only screen and (max-width:688px){
      .login-section{
-         height: 115vh;
+         height: 130vh;
      }
      .login-form{
          width: 80% !important;

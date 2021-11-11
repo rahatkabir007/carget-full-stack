@@ -9,7 +9,7 @@
 /* Mobile device */
  @media only screen and (max-width:688px){
      .register-section{
-         height: 115vh;
+         height: 130vh;
      }
      .register-form{
          width: 80% !important;
