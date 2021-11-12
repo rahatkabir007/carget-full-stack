@@ -1,0 +1,26 @@
+.facilities-section h1 {
+    color: #00827b;
+}
+
+.facilities-section hr {
+    width: 10%;
+    margin: 0 auto 10px auto;
+    background-color: #00827b;
+}
+
+.facility-card {
+   background-color: #c9e4c59c;
+}
+
+.facility-section img {
+    width: 60%;
+    margin: 10px auto 10px auto;
+    padding: 5px;
+}
+
+.facility-text {
+    font-size: 20px;
+}
+.facility-text h2{
+    color: #00827b;
+}

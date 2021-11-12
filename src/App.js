@@ -16,6 +16,7 @@ import MakeAdmin from './components/Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import ManageOrders from './components/Pages/Dashboard/Admin/ManageOrders/ManageOrders';
 import ManageProducts from './components/Pages/Dashboard/Admin/ManageProducts/ManageProducts';
 import PlaceOrder from './components/Pages/PlaceOrder/PlaceOrder';
+import AdminRoute from './components/Pages/Login/AdminRoute/AdminRoute';
 
 
 function App() {
@@ -42,33 +43,33 @@ function App() {
             <PrivateRoute path='/selectedproduct/:productId'>
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            <Route path='/dashboard'>
+            <PrivateRoute path='/dashboard'>
              <Dashboard></Dashboard>
-            </Route>
-            <Route path='/dashboardhome'>
+            </PrivateRoute>
+            <PrivateRoute path='/dashboardhome'>
               <DashboardHome></DashboardHome>
-            </Route>
-            <Route path='/myorder'>
+            </PrivateRoute>
+            <PrivateRoute path='/myorder'>
              <MyOrder></MyOrder>
-            </Route>
-            <Route path='/review'>
+            </PrivateRoute>
+            <PrivateRoute path='/review'>
              <Review></Review>
-            </Route>
-            <Route path='/pay'>
+            </PrivateRoute>
+            <PrivateRoute path='/pay'>
             <Pay></Pay>
-            </Route>
-            <Route path='/addproducts'>
+            </PrivateRoute>
+            <AdminRoute path='/addproducts'>
            <AddProducts></AddProducts>
-            </Route>
-            <Route path='/makeadmin'>
+            </AdminRoute>
+            <AdminRoute path='/makeadmin'>
             <MakeAdmin></MakeAdmin>
-            </Route>
-            <Route path='/manageorders'>
+            </AdminRoute>
+            <AdminRoute path='/manageorders'>
             <ManageOrders></ManageOrders>
-            </Route>
-            <Route path='/manageproducts'>
+            </AdminRoute>
+            <AdminRoute path='/manageproducts'>
             <ManageProducts></ManageProducts>
-            </Route>
+            </AdminRoute>
             <Route path='*'>
               <NotFound></NotFound>
             </Route>

@@ -8,7 +8,7 @@ const Banner = () => {
         setIndex(selectedIndex);
     };
     return (
-        <React.Fragment>
+     
         <div className="banner-section">
                 <Container>
                     <Row className="row-area">
@@ -50,7 +50,7 @@ const Banner = () => {
              </Container>
           
             </div>
-            </React.Fragment>
+          
     );
 };
 

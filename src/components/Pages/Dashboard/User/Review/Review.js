@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../../hooks/useAuth';
 
@@ -22,9 +22,7 @@ const Review = () => {
                 }
             })
     }
-    useEffect(() => {
-
-    }, [])
+    
     return (
         <div>
             <h1>This is review</h1>

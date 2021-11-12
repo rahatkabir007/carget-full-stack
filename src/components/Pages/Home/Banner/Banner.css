@@ -1,17 +1,16 @@
 .banner-section{
-    position: absolute;
     background-image: url("https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 102vh;
+    height: 90vh;
     
 }
 .row-area{
     position: absolute;
-    top: 43%;
+    top: 50%;
     left: 50%;
     width: 80%;
     transform: translate(-50%,-50%);
@@ -40,13 +39,33 @@
 }
 
 
+
  @media only screen and (max-width:688px) {
      .banner-section{
          height: 125vh;
      }
      .row-area{
+        margin-top: 40%;
+        width: 90%;
          top: 50%;
-          left: 52.5%;
+        left: 53%;
+     }
+     .left-banner-area{
+         text-align: center;
+     }
+.right-banner-area{
+    display: none;
+}
+ }
+ @media only screen and (max-width:688px) and (min-height: 641px) and (max-height: 840px){
+     .banner-section{
+         height: 90vh;
+     }
+     .row-area{
+        margin-top: 0%;
+        width: 90%;
+         top: 50%;
+        left: 53%;
      }
      .left-banner-area{
          text-align: center;

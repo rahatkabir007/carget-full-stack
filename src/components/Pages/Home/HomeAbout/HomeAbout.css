@@ -1,0 +1,30 @@
+/* .homeabout{
+    margin-top: 100px;
+} */
+.homeabout-left-area img{
+    border-radius: 5px;
+     overflow: hidden;
+}
+.homeabout-right-area p{
+    font-size: 20px;
+    line-height: 40px;
+    padding: 10px;
+}
+.homeabout-right-area hr{
+        margin: 0 auto 10px auto;
+        background-color: #00827b;
+}
+
+/* Mobile device */
+@media only screen and (max-width:688px){
+.homeabout-left-area {
+    width: 75%;
+}
+
+.homeabout-right-area {
+    width: 85%;
+}
+.homeabout-container {
+    overflow: hidden;
+}
+}
