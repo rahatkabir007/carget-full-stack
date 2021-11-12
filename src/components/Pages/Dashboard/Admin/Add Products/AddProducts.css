@@ -1,0 +1,10 @@
+
+/* Mobile device */
+@media only screen and (max-width:688px) {
+   
+    .add-form-area{
+        width: 75% !important;
+        margin: 0px;
+    }
+
+}
