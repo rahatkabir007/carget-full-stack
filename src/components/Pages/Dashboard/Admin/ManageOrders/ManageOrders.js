@@ -9,10 +9,10 @@ const ManageOrders = () => {
     const handleStatus = e => {
         setStatus(e.target.value)
     }
-   
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://cryptic-mesa-50717.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setManageOrders(data))
     }, [])
@@ -23,7 +23,7 @@ const ManageOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this order?');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://cryptic-mesa-50717.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -40,7 +40,7 @@ const ManageOrders = () => {
     }
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://cryptic-mesa-50717.herokuapp.com/updateStatus/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -52,8 +52,8 @@ const ManageOrders = () => {
                 if (data.modifiedCount) {
                     alert("Status Updated");
                 }
-        })
-      
+            })
+
     }
 
 

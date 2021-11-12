@@ -6,7 +6,7 @@ import Navigation from '../Shared/Navigation/Navigation';
 const Explore = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://cryptic-mesa-50717.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -42,7 +42,7 @@ const Explore = () => {
                     </div>
                 </div>
             </div>
-      </div>
+        </div>
     );
 };
 

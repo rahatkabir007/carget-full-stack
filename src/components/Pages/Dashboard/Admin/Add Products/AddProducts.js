@@ -6,11 +6,11 @@ import './AddProducts.css';
 
 const AddProducts = () => {
     const { user } = useAuth();
-    const { register, handleSubmit, formState: { errors } ,reset} = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://cryptic-mesa-50717.herokuapp.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Successfully Added");

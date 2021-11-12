@@ -5,7 +5,7 @@ import { Spinner } from 'react-bootstrap';
 const ManageProducts = () => {
     const [products, setproducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://cryptic-mesa-50717.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setproducts(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this product?');
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://cryptic-mesa-50717.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -32,7 +32,7 @@ const ManageProducts = () => {
 
     }
 
-    
+
     return (
         <div className="products-section" id="products">
             <h1 className="text-center">Our Cars</h1>

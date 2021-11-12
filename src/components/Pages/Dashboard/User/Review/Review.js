@@ -9,12 +9,12 @@ const Review = () => {
     const email = user?.email;
 
     const { register, handleSubmit, reset } = useForm();
-    
+
     const onSubmit = (data) => {
         data.displayName = displayName;
         data.email = email;
         console.log(data);
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://cryptic-mesa-50717.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Your Review Has Been Submitted");
@@ -23,7 +23,7 @@ const Review = () => {
             })
     }
     useEffect(() => {
-       
+
     }, [])
     return (
         <div>
@@ -39,11 +39,11 @@ const Review = () => {
                     placeholder="Please Give Us A Rating Out of 5"
                     className="p-2 my-2 mx-auto w-50"
                 />
-                   <input
-                        {...register("image")}
-                        placeholder="Please Share a Live Link Of Your Own Image"
-                        className="p-2 my-2 mx-auto w-50"
-                    />
+                <input
+                    {...register("image")}
+                    placeholder="Please Share a Live Link Of Your Own Image"
+                    className="p-2 my-2 mx-auto w-50"
+                />
                 <input type="submit" value="Share Review" className="btn btn-dark my-2 m-auto w-50" id="place-order-btn" />
             </form>
         </div>
