@@ -17,7 +17,7 @@ const AdminRoute = ({ children, ...rest }) => {
                 render={({ location }) => user.email && admin ? children :
                     <Redirect
                         to={{
-                            pathname: "/",
+                            pathname: "/dashboard",
                             state: { from: location }
                         }}
                     >

@@ -33,13 +33,13 @@ const AddProducts = () => {
                         className="p-2 m-2 w-100"
                     />
                     <input
-                        {...register("car-name", { required: true })}
-                        placeholder="Name"
+                        {...register("carName", { required: true })}
+                        placeholder="Car Name"
                         className="p-2 m-2 w-100"
                     />
                     <textarea
                         {...register("description", { required: true })}
-                        placeholder="Description"
+                        placeholder="Car Description"
                         className="p-2 m-2 w-100"
                     />
                     <input

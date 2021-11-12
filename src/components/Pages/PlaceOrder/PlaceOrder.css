@@ -1,0 +1,24 @@
+.image-area img {
+    border-radius: 10px;
+}
+.right-order-form input{
+    width: 50% !important;
+}
+#place-order-btn{
+    width: 25% !important;
+}
+
+@media only screen and (max-width:688px){
+    .left-order-details{
+        text-align: left !important;
+        margin: 0px !important;
+    }
+    .image-area {
+        margin: 15px 0px !important;
+        
+    }
+    .text-area {
+        margin: 0px !important;
+        
+    }
+}

@@ -15,6 +15,7 @@ import AddProducts from './components/Pages/Dashboard/Admin/Add Products/AddProd
 import MakeAdmin from './components/Pages/Dashboard/Admin/MakeAdmin/MakeAdmin';
 import ManageOrders from './components/Pages/Dashboard/Admin/ManageOrders/ManageOrders';
 import ManageProducts from './components/Pages/Dashboard/Admin/ManageProducts/ManageProducts';
+import PlaceOrder from './components/Pages/PlaceOrder/PlaceOrder';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <PrivateRoute path='/explore'>
               <Explore></Explore>
+            </PrivateRoute>
+            <PrivateRoute path='/selectedproduct/:productId'>
+              <PlaceOrder></PlaceOrder>
             </PrivateRoute>
             <Route path='/dashboard'>
              <Dashboard></Dashboard>
