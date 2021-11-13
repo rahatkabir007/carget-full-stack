@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
 import {
     Switch,
     Route,
@@ -25,7 +24,8 @@ import ManageProducts from '../Admin/ManageProducts/ManageProducts';
 import Pay from '../User/Pay/Pay';
 import MyOrder from '../User/MyOrder/MyOrder';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
-
+import logo from '../../../images/logo.png';
+import './Dashboard.css';
 
 const drawerWidth = 200;
 
@@ -41,23 +41,25 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div className="text-center">
-            <h1>Home</h1>
+        <div className="text-center" >
+            <img src={logo} className='logo' id="logo" alt="Carget"/>
             <Toolbar />
             {/* <Divider /> */}
-
-            {admin ? <Box>
-                <Link to={`${url}/addproducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Add Products</Button></Link>
-                <Link to={`${url}/manageproducts`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Manage All Products</Button></Link>
-                <Link to={`${url}/manageorders`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Manage All Orders</Button></Link>
-                <Link to={`${url}/makeadmin`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Make Admin</Button></Link><br/>
-                <Link to='/home' onClick={logOut} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Logout</Button></Link>
+           
+            {admin ? <Box id="dash-links">
+                <Link to='/home' >Home</Link>
+                <Link to={`${url}/addproducts`} >Add Products</Link>
+                <Link to={`${url}/manageproducts`} >Manage All Products</Link>
+                <Link to={`${url}/manageorders`} >Manage All Orders</Link>
+                <Link to={`${url}/makeadmin`} >Make Admin</Link><br/>
+                <Link to='/home' onClick={logOut} >Logout</Link>
             </Box>:
-                <div className="d-flex flex-column ">
-                    <Link to={`${url}/myorder`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">My Orders</Button></Link>
-                    <Link to={`${url}/review`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit">Review</Button></Link>
-                    <Link to={`${url}/pay`} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Pay Now</Button></Link>
-                    <Link to='/home' onClick={logOut} style={{ textDecoration: 'none', color: 'black' }}><Button color="inherit" >Logout</Button></Link>
+                <div className="d-flex flex-column" id="dash-links">
+                    <Link to='/home' >Home</Link>
+                    <Link to={`${url}/myorder`} >My Orders</Link>
+                    <Link to={`${url}/review`} >Review</Link>
+                    <Link to={`${url}/pay`}>Pay Now</Link>
+                    <Link to='/home' onClick={logOut}>Logout</Link>
                 </div>
         }
 
@@ -71,10 +73,12 @@ function Dashboard(props) {
         <Box sx={{ display: 'flex' , textAlign: 'center'}}>
             <CssBaseline />
             <AppBar
+                className="appbar"
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
+                   
                 }}
             >
                 <Toolbar>
@@ -87,8 +91,8 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        {user?.displayName}'s Dashboard
+                    <Typography variant="h5" className="p-4" noWrap component="div">
+                        {user?.displayName}'s DASHBOARD
                     </Typography>
                 </Toolbar>
             </AppBar>

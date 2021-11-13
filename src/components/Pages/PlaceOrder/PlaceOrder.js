@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './PlaceOrder.css';
 import Navigation from '../Shared/Navigation/Navigation';
+import Footer from '../Shared/Footer/Footer';
 const PlaceOrder = () => {
 
     const { user } = useAuth();
@@ -49,7 +50,7 @@ const PlaceOrder = () => {
                         </div>
                     </div>
                     <div className="col-lg-7 my-5 right-order-form text-center">
-                        <form onSubmit={handleSubmit(onSubmit)} className="ms-auto mt-3">
+                        <form onSubmit={handleSubmit(onSubmit)} className="ms-auto mt-5">
                             <input
                                 {...register("name")}
                                 value={user?.displayName}
@@ -93,12 +94,12 @@ const PlaceOrder = () => {
                                 className="p-2 m-2 w-100"
                             />
                             <br />
-                            <input type="submit" value="Place Order" className="btn btn-dark w-25 ms-2 my-3" id="place-order-btn" />
+                            <input type="submit" value="Place Order" className="secondary-btn my-2" />
                         </form>
                     </div>
                 </div>
             </div>
-
+            <Footer></Footer>
         </div>
     );
 };

@@ -4,9 +4,7 @@
 .right-order-form input{
     width: 50% !important;
 }
-#place-order-btn{
-    width: 25% !important;
-}
+
 
 @media only screen and (max-width:688px){
     .left-order-details{

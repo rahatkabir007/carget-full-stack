@@ -13,7 +13,7 @@ const OurCar = ({ product }) => {
                     <p className="card-text" id="price">Price:  {price}$</p>
                 </div>
                 <div className="text-left p-3">
-                    <Link to={`/selectedproduct/${_id}`} className="booking-btn ">Buy Now</Link>
+                    <Link to={`/selectedproduct/${_id}`} className="secondary-btn">Buy Now</Link>
                 </div>
 
 
