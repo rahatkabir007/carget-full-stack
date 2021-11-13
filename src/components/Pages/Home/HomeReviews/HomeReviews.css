@@ -1,0 +1,39 @@
+.slider{
+    padding: 10px;
+}
+.slider img{
+    margin: 0 auto;
+    padding: 10px;
+}
+.slider-section{
+    overflow: hidden;
+}
+.review-card{
+   background: linear-gradient(315deg, #4f94a5, #f0eeed);
+}
+
+ @media only screen and (max-width:688px) {
+.review-card{
+    width: 18rem !important;
+    height: 20rem !important;
+ 
+}
+.review-card img{
+    width: 10rem !important;
+    height: 10rem !important;
+}
+.review-card h2{
+    font-size: 15px !important;
+}
+.review-card p{
+    font-size: 10px !important;
+}
+ }
+ @media only screen and (max-width:688px) and (min-height: 641px) and (max-height: 840px){
+  
+ }
+
+  /* Tab */
+ @media only screen and (min-width: 688px) and (max-width: 992px) {
+  
+ }

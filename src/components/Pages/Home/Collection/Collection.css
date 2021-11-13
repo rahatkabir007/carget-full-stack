@@ -1,0 +1,31 @@
+.collection-slider {
+    height: 600px;
+}
+.carousel-caption{
+       position: absolute;
+       bottom: 30%;
+       left: 18%;
+       width: 65%;
+        padding: 40px 0;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #f18d4d;
+        font-weight: bold;
+        border: 5px solid #f18d4d;
+}
+.carousel-caption h5 {
+    color: white;
+    font-size: 50px;
+    text-shadow: 4px 4px black;
+}
+.carousel-caption p{
+     color: #f18d4d;
+     font-size: 30px;
+     text-shadow: 2px 2px black;
+}
+/* Mobile device */
+@media only screen and (max-width:688px){
+    .collection-slider {
+        height: 100%;
+    }
+}

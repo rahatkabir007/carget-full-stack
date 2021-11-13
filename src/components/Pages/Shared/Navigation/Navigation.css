@@ -23,6 +23,10 @@
     transition: 0.5s;
     border-bottom: 2px solid #f18d4d ;
 }
+#username{
+    border-right: 2px solid #f18d4d;
+    padding-right: 6px;
+}
 
 /* Mobile device */
  @media only screen and (max-width:688px) {
@@ -44,6 +48,8 @@
 }
 #username{
     margin: 2px auto;
+    border-right: none;
+      padding-right: 0;
 }
 
 }
@@ -69,6 +75,8 @@
 }
 #username{
     margin: 2px auto;
+    border-right: none;
+      padding-right: 0;
 }
 
 }

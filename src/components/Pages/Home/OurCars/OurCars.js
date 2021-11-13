@@ -16,8 +16,7 @@ const OurCars = () => {
 
     return (
         <div className="products-section" id="products">
-            <h1 className="text-center">Our Cars</h1>
-            <hr />
+           
             <div className="container">
                 <div className="row">
                     {

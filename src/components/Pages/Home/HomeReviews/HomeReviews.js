@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-
+import { FaStar, FaRegStar } from 'react-icons/fa';
+import Slider from "react-slick";
+import './HomeReviews.css';
 const HomeReviews = () => {
     const [reviews, setReviews] = useState([]);
 
@@ -13,24 +15,105 @@ const HomeReviews = () => {
         return <div className="w-25 mx-auto text-center"><Spinner className="my-5 " animation="border" variant="success" /></div>
     }
 
-
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 2,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    centerMode: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                     initialSlide: 1
+                }
+            }
+        ]
+    }
     return (
         <>
-            <div className="container my-orders my-4">
-                <div className="row">
-                    {
-                        reviews.map(review => <div className="col-md-6 col-lg-6 col-xxl-4 service-section mt-3">
-                            <div className="card service-card h-100 mx-auto " style={{ width: "18rem" }}>
-                                <img src={review?.image} className="card-img-top " style={{ height: "15rem" }} alt="..." />
-                                <div className="card-body text-center service-text">
-                                    <h2 className="card-title">{review?.displayName}</h2>
-                                    <p className="card-text" id="description">{review?.review}</p>
-                                    <p className="card-text" id="price">{review?.rating}</p>
-                                </div>
-                            </div>
-                        </div>)
-                    }
+            <div className="container-fluid my-orders my-4">
+                <div className="slider-section">
+                    <Slider {...settings} className="slider">
+                            {
+                                reviews.map(review => <div className=" mt-3">
+                                    <div className="card review-card mx-auto" style={{ width: "35rem" , height: '23rem'}}>
+                                        <img src={review?.image} className="card-img-top" style={{ width: '15rem',height: "12rem", borderRadius: '50%' }} alt="..." />
+                                        <div className="card-body text-center review-text h-100">
+                                            <h2 className="card-title">{review?.displayName}</h2>
+                                            <p className="card-text" id="description">{review?.review}</p>
+                                            {review?.rating === 1 ?
+                                                <>
+                                                    <FaStar color="#ffc107" />
+                                                    <FaRegStar />
+                                                    <FaRegStar />
+                                                    <FaRegStar />
+                                                    <FaRegStar />
+                                                </>
+                                                : review?.rating === 2 ?
+                                                    <>
+                                                        <FaStar color="#ffc107" />
+                                                        <FaStar color="#ffc107" />
+                                                        <FaRegStar />
+                                                        <FaRegStar />
+                                                        <FaRegStar />
+                                                    </> : review?.rating === 3 ?
+                                                        <>
+                                                            <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
+                                                            <FaRegStar />
+                                                            <FaRegStar />
+                                                        </> : review?.rating === 4 ?
+                                                            <>
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                                <FaRegStar />
+                                                            </> :
+                                                            <>
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                                <FaStar color="#ffc107" />
+                                                            </>
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>)
+                            }
+                        
+                    </Slider>
                 </div>
+              
 
             </div>
 
