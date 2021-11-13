@@ -24,7 +24,7 @@ const Explore = () => {
                 <div className="container">
                     <div className="row">
                         {
-                            products.map(product => <div key={product?._id} className="col-md-6 col-lg-6 col-xxl-4 product-section my-4">
+                            products.map(product => <div key={product?._id} className="col-md-6 col-lg-6 col-xxl-4 products-section my-4">
                                 <div className="card product-card h-100 mx-auto " style={{ width: "24rem" }}>
                                     <img src={product?.image} className="card-img-top " style={{ height: "15rem" }} alt="..." />
                                     <div className="card-body text-start product-text">

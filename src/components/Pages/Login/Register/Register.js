@@ -106,7 +106,7 @@ export default function SignUp() {
             <div className="register-section">
                 <Navigation></Navigation>
                 <ThemeProvider theme={theme}>
-                    <Container component="main" maxWidth="xs" style={{ backgroundColor: '#F9E4C8', border: '10px solid #f18d4d', borderRadius: "10px", marginTop: "40px", padding: "5px" }} className="register-form">
+                    <Container component="main" maxWidth="xs" style={{ backgroundColor: '#F9E4C8', border: '10px solid #f18d4d', borderRadius: "10px", marginTop: "40px", padding: "5px", marginBottom: "50px"}} className="register-form">
                         <CssBaseline />
                         <Box
                             sx={{

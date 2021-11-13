@@ -30,6 +30,7 @@ import './Dashboard.css';
 const drawerWidth = 200;
 
 function Dashboard(props) {
+   
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { user, logOut, admin } = useAuth();
@@ -97,12 +98,14 @@ function Dashboard(props) {
                 </Toolbar>
             </AppBar>
             <Box
+               
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Drawer
+        
                     container={container}
                     variant="temporary"
                     open={mobileOpen}
@@ -112,16 +115,20 @@ function Dashboard(props) {
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        '& .MuiDrawer-paper': {
+                            boxSizing: 'border-box', width: drawerWidth,
+                            background: 'linear-gradient(to right, #4ca2cd, #67B26F)'
+                           },
                     }}
                 >
                     {drawer}
                 </Drawer>
                 <Drawer
                     variant="permanent"
+                    style={{backgroundColor: 'red'}}
                     sx={{
                         display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background: 'linear-gradient(to right, #4ca2cd, #67B26F)' }
                     }}
                     open
                 >
