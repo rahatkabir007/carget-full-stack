@@ -8,13 +8,13 @@ const HomeAbout = () => {
                     <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div className="carousel-inner ">
                             <div className="carousel-item active">
-                                <img src="https://images.pexels.com/photos/507410/pexels-photo-507410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" className="d-block w-100" alt="..." />
+                                <img src="https://images.pexels.com/photos/7144176/pexels-photo-7144176.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" className="d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://images.pexels.com/photos/122107/pexels-photo-122107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" className="d-block w-100" alt="..." />
+                                <img src="https://image.freepik.com/free-photo/close-up-sales-manager-black-suit-selling-car-customer_146671-14738.jpg" className="d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" className="d-block w-100" alt="..." />
+                                <img src="https://image.freepik.com/free-photo/handsome-elegant-man-car-salon_1157-20978.jpg" className="d-block w-100" alt="..." />
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@ const HomeAbout = () => {
                 <div className="homeabout-right-area col-lg-5  ps-3">
                     <h1 className="p-3">About Us</h1>
                     <hr />
-                    <p>Travelo is a trusted and reliable tour and travel company among all the leading and updated tour-operating services in Asia. We are here to bring the luxury to your traveling, Travelo is a proud member of Association of Travel Agents of Asia-ATAA and Tour Operators Association of Asia.</p>
+                    <p>CARGET is a trusted and reliable vehicle dealership company among all the leading and updated companies in Asia. We are here to bring the luxury cars. CARGET is a proud member of Association of Dealership Agents of Asia-ATDA and Vehicle Management Association of Asia.</p>
                 </div>
             </div>
         </div>

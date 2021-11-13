@@ -17,6 +17,7 @@ import ManageOrders from './components/Pages/Dashboard/Admin/ManageOrders/Manage
 import ManageProducts from './components/Pages/Dashboard/Admin/ManageProducts/ManageProducts';
 import PlaceOrder from './components/Pages/PlaceOrder/PlaceOrder';
 import AdminRoute from './components/Pages/Login/AdminRoute/AdminRoute';
+import About from './components/Pages/About/About';
 
 
 function App() {
@@ -37,9 +38,12 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route>
-            <PrivateRoute path='/explore'>
+            <Route path='/explore'>
               <Explore></Explore>
-            </PrivateRoute>
+            </Route>
+            <Route path='/about'>
+              <About></About>
+            </Route>
             <PrivateRoute path='/selectedproduct/:productId'>
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>

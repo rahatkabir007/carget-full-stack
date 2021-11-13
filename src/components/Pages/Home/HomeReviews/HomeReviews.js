@@ -57,7 +57,7 @@ const HomeReviews = () => {
     }
     return (
         <>
-            <div className="container-fluid my-orders my-4">
+            <div className="container-fluid  my-5">
                 <div className="slider-section">
                     <Slider {...settings} className="slider">
                             {
