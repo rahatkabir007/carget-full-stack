@@ -35,13 +35,18 @@ const MakeAdmin = () => {
     }
 
     return (
-        <div>
-            <h2>Assign New Admin</h2>
-            <form onSubmit={handleMakeAdmin}>
-                <TextField onBlur={handleOnBlur} id="standard-basic" type="email" label="Email" variant="standard" sx={{ width: "50%", mt: 10 }} /><br />
-                <button className="mt-2 btn btn-secondary">Make Admin</button><br />
-                {success && <Alert severity="success" sx={{ mt: 4 }}>Assigned Admin Role Succesfully!</Alert>}
-            </form>
+        <div className="d-lg-flex justify-content-center align-items-center">
+            <div>
+                <img className='w-75 mx-auto' src="https://image.freepik.com/free-vector/male-businessman-character-sitting-office-workplace-computer-monitor-desk_80328-218.jpg" alt="" />
+            </div>
+            <div>
+                <h1>Assign New Admin</h1>
+                <form onSubmit={handleMakeAdmin}>
+                    <TextField onBlur={handleOnBlur} id="standard-basic" type="email" label="Email" variant="standard" sx={{ width: "100%", mt: 10 }} /><br />
+                    <button className="my-3 secondary-btn">Make Admin</button><br />
+                    {success && <Alert severity="success" sx={{ mt: 4 }}>Assigned Admin Role Succesfully!</Alert>}
+                </form>
+            </div>
         </div>
     );
 };

@@ -96,7 +96,7 @@ const ManageOrders = () => {
                                         </select>
                                     </form></td>
 
-                                    <td><button className="btn btn-warning p-2" onClick={() => handleDelete(orders?._id)}>Delete</button></td>
+                                    <td><button className="btn btn-danger p-2" onClick={() => handleDelete(orders?._id)}>Delete</button></td>
                                     <td><button type="submit" onClick={() => handleUpdate(orders?._id)} className="primary-btn px-3 rounded">Update Status</button></td>
                                 </tr>
                             </tbody>

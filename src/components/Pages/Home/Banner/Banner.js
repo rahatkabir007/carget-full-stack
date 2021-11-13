@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Carousel, Col, Row , Container, Button} from 'react-bootstrap';
+import { Carousel, Col, Row , Container} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Banner.css';
 const Banner = () => {
     const [index, setIndex] = useState(0);
@@ -16,7 +17,7 @@ const Banner = () => {
                             <h1>Welcome to <span style={{ color: '#f18d4d', fontWeight: 'bolder' ,textShadow: '4px 4px black'}}>CARGET</span></h1>
                             <h4>LIFE'S TOO SHORT TO DRIVE BORING CARS</h4>
                             <h5>FIND YOUR DREAM CAR HERE</h5>
-                            <Button className="primary-btn">Buy Now</Button>
+                            <Link to='/explore' className="primary-btn rounded" style={{textDecoration:"none"}}>Buy Now</Link>
 
                         </Col>
                         <Col lg={6} className="right-banner-area">
