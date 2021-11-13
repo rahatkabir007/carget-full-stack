@@ -2,7 +2,7 @@ import React from 'react';
 import './HomeAbout.css';
 const HomeAbout = () => {
     return (
-        <div className="container my-5 homeabout">
+        <div className="container my-5 homeabout py-4">
             <div className="homeabout-container row">
                 <div className="homeabout-left-area col-lg-6 ">
                     <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">

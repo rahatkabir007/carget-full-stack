@@ -15,6 +15,7 @@ import './Register.css';
 import useAuth from '../../../hooks/useAuth';
 import { Alert, CircularProgress } from '@mui/material';
 import PropTypes from 'prop-types';
+import Footer from '../../Shared/Footer/Footer';
 
 const theme = createTheme();
 
@@ -201,6 +202,7 @@ export default function SignUp() {
                         </Box>
                     </Container>
                 </ThemeProvider>
+                <Footer></Footer>
             </div>
         </>
     );

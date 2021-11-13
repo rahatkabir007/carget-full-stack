@@ -46,12 +46,12 @@ function Dashboard(props) {
             <Toolbar />
             {/* <Divider /> */}
            
-            {admin ? <Box id="dash-links">
+            {admin ? <Box className="d-flex flex-column" id="dash-links">
                 <Link to='/home' >Home</Link>
                 <Link to={`${url}/addproducts`} >Add Products</Link>
                 <Link to={`${url}/manageproducts`} >Manage All Products</Link>
                 <Link to={`${url}/manageorders`} >Manage All Orders</Link>
-                <Link to={`${url}/makeadmin`} >Make Admin</Link><br/>
+                <Link to={`${url}/makeadmin`} >Make Admin</Link>
                 <Link to='/home' onClick={logOut} >Logout</Link>
             </Box>:
                 <div className="d-flex flex-column" id="dash-links">
@@ -91,7 +91,7 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h5" className="p-4" noWrap component="div">
+                    <Typography variant="h5" className="py-4" noWrap component="div">
                         {user?.displayName}'s DASHBOARD
                     </Typography>
                 </Toolbar>

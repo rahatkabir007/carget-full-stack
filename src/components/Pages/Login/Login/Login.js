@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link, useLocation, useHistory} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
 
 const theme = createTheme();
 const Login = () => {
@@ -180,6 +181,7 @@ const Login = () => {
 
                     </Container>
                 </ThemeProvider>
+                <Footer></Footer>
             </div>
         </>
     );
