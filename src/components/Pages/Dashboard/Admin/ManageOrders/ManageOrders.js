@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import './ManageOrders.css'
+
 
 const ManageOrders = () => {
     const [manageOrders, setManageOrders] = useState([]);

@@ -5,27 +5,27 @@ const Facilities = () => {
     const facilities = [
         {
             key: '1',
-            img: " https://i.ibb.co/Ntq2dK4/194-Travelling-in-Balloon.png",
-            name: 'Activities',
-            detail: 'We have many different activites!Skydiving, Paragliding etc.'
+            img: "https://image.flaticon.com/icons/png/128/859/859835.png",
+            name: 'Results Driven',
+            detail: 'We have Best Cars Which Have Great Rating'
         },
         {
             key: '2',
-            img: ' https://i.ibb.co/v47wrBP/137-Flying-for-Holiday.png',
-            name: 'Travel Arrangement',
-            detail: 'You can book your tickets from us!Planes, Trains etc.'
+            img: 'https://image.flaticon.com/icons/png/128/226/226537.png',
+            name: 'Proven Technology',
+            detail: 'Cars Which Has The Latest Technologies'
         },
         {
             key: '3',
-            img: ' https://i.ibb.co/zrmyxpC/87-Going-on-Roadtrip.png',
-            name: 'Private Guide',
-            detail: 'We provide private guide to enjoy the places with safety!'
+            img: ' https://image.flaticon.com/icons/png/512/814/814421.png',
+            name: 'Winning Culture',
+            detail: 'So Many Beautiful Cars That You Can Compete'
         },
         {
             key: '4',
-            img: '  https://i.ibb.co/bmk1bzY/156-Explore-the-World.png',
-            name: 'Location Manager',
-            detail: 'Location Manager will help you to locate different beautiful places'
+            img: 'https://image.flaticon.com/icons/png/128/646/646623.png',
+            name: 'Top Performance',
+            detail: 'Highest Speed and Less Oil Cost For Many Years'
         },
     ]
     return (
@@ -36,8 +36,8 @@ const Facilities = () => {
                 {
 
                     facilities.map(facility => <div className="col-md-6 col-lg-6 col-xxl-3 facility-section my-3">
-                        <div className="card facility-card h-100 mx-auto  " style={{ width: "18rem" }}>
-                            <img src={facility.img} className="card-img-top h-50" alt="..." />
+                        <div className="facility-card h-100 mx-auto  " style={{ width: "18rem" }}>
+                            {/* <img src={facility.img} className="card-img-top h-50" alt="..." /> */}
                             <div className="card-body text-center facility-text">
                                 <h2 className="card-title  ">{facility.name}</h2>
                                 <p className="card-text">{facility.detail}</p>

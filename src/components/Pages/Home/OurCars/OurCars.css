@@ -1,12 +1,13 @@
 .products-section {
     padding-top: 11px;
     padding-bottom: 12px;
-    
 }
 
 .products-section h1 {
+    color: black;
+}
+.products-section hr{
     color: #f18d4d;
-    text-shadow: 2px 2px black;
 }
 
 .products-section hr {

@@ -1,16 +1,19 @@
+/* .facilities-section{
+    background-color: white;
+} */
 .facilities-section h1 {
-    color: #00827b;
+    color: black;
 }
 
 .facilities-section hr {
     width: 10%;
     margin: 0 auto 10px auto;
-    background-color: #00827b;
+    background-color: #f18d4d;
 }
 
-.facility-card {
+/* .facility-card {
    background-color: #c9e4c59c;
-}
+} */
 
 .facility-section img {
     width: 60%;
@@ -22,5 +25,5 @@
     font-size: 20px;
 }
 .facility-text h2{
-    color: #00827b;
+    color: black;
 }

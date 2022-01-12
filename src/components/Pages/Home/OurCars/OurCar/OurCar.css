@@ -1,10 +1,12 @@
 .product-card {
  border-radius: 8px;
-background: linear-gradient(315deg, #857e7a, #ebeac5);
-box-shadow:  -2px -2px 5px #3f3e3e,
-             2px 2px 5px #1b1b1a;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+transition: 0.6s;
 }
-
+.product-card:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+}
 .product-text {
     font-size: 20px;
 }
