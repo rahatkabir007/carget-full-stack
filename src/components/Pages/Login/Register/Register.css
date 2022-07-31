@@ -8,11 +8,22 @@
 .css-nzinn5-MuiContainer-root{
     margin-bottom: 40px ;
 }
+.register-form {
+    height: 600px;
+}
+
+ /* Tab */
+ @media only screen and (min-width: 688px) and (max-width: 992px) {
+     .register-form {
+         height: 600px;
+     }
+ }
 
 
 /* Mobile device */
  @media only screen and (max-width:688px){
      .register-form{
          width: 80% !important;
+         height: 100%;
      }
  }
