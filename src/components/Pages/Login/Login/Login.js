@@ -99,7 +99,7 @@ const Login = () => {
             <div className="login-section">
                 <Navigation ></Navigation>
                 <ThemeProvider theme={theme}>
-                    <Container component="main" maxWidth="xs" style={{ backgroundColor: '#F9E4C8', border: '10px solid #f18d4d', borderRadius: "10px", marginTop: "40px", padding: "5px" , marginBottom: "50px"}} className="login-form">
+                    <Container component="main" maxWidth="xs" style={{ backgroundColor: '#F9E4C8', border: '10px solid #f18d4d', borderRadius: "10px", marginTop: "40px", padding: "5px", marginBottom: "50px" }} className={!isLoading ? "login-form" : "login-loading-form"}>
                         <CssBaseline />
                         <Box
                             sx={{

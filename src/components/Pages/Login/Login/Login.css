@@ -1,26 +1,29 @@
-.login-section{
+.login-section {
     background-image: url('https://images.pexels.com/photos/638479/pexels-photo-638479.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-   
-  
 }
-.login-form{
+
+.login-loading-form {
     height: 536px;
 }
 
- /* Tab */
- @media only screen and (min-width: 688px) and (max-width: 992px) {
-    .login-form {
-            height: 565px;
-        }
- }
+/* Tab */
+@media only screen and (min-width: 688px) and (max-width: 992px) {
+    .login-loading-form {
+        height: 565px;
+    }
+}
 
 /* Mobile device */
- @media only screen and (max-width:688px){
-     .login-form{
-         width: 80% !important;
-         height: 100%;
-     }
- }
+@media only screen and (max-width:688px) {
+    .login-form {
+        width: 80% !important;
+    }
+
+    .login-loading-form {
+        width: 80% !important;
+        height: 100%;
+    }
+}
