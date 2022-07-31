@@ -29,12 +29,13 @@ const SalesCount = () => {
                     {
                         counts.map((count, index) => {
                             return (
-                                <Grid item xs={12} md={12} lg={4} sx={{ textAlign: 'center', color: 'black', textShadow: '1px 1px grey', }}>
+                                <Grid key={index} item xs={12} md={12} lg={4} sx={{ textAlign: 'center', color: 'black', textShadow: '1px 1px grey', }}>
 
                                     <CountUp
                                         delay={0}
                                         duration={1}
-
+                                        preserveValue={true}
+                                        enableScrollSpy={true}
                                         end={count.value}
                                         style={{
                                             transition: '0.6s ease-out',
