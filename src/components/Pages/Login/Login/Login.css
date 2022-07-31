@@ -3,15 +3,24 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 125vh;
+   
+  
 }
+.login-form{
+    height: 536px;
+}
+
+ /* Tab */
+ @media only screen and (min-width: 688px) and (max-width: 992px) {
+    .login-form {
+            height: 565px;
+        }
+ }
 
 /* Mobile device */
  @media only screen and (max-width:688px){
-     .login-section{
-         height: 200vh;
-     }
      .login-form{
          width: 80% !important;
+         height: 100%;
      }
  }
