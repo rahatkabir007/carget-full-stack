@@ -15,7 +15,7 @@ const MakeAdmin = () => {
         const user = { email }
         const proceed = window.confirm('Are You Sure You Want To Assign Admin Role To This Email')
         if (proceed) {
-            fetch('https://cryptic-mesa-50717.herokuapp.com/users/admin', {
+            fetch('https://carget.onrender.com/users/admin', {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

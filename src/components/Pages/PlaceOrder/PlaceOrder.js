@@ -19,7 +19,7 @@ const PlaceOrder = () => {
         data.status = "PENDING";
         data.description = productDetails?.description;
         console.log(data);
-        axios.post('https://cryptic-mesa-50717.herokuapp.com/placeOrders', data)
+        axios.post('https://carget.onrender.com/placeOrders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Your Order Has Been Booked");
@@ -29,7 +29,7 @@ const PlaceOrder = () => {
     }
 
     useEffect(() => {
-        fetch(`https://cryptic-mesa-50717.herokuapp.com/selectedproduct/${productId}`)
+        fetch(`https://carget.onrender.com/selectedproduct/${productId}`)
             .then(res => res.json())
             .then(data => setProductDetails(data));
     }, [productId])

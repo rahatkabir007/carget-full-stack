@@ -10,7 +10,7 @@ const AddProducts = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        axios.post('https://cryptic-mesa-50717.herokuapp.com/products', data)
+        axios.post('https://carget.onrender.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Successfully Added");

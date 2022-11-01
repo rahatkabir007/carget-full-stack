@@ -7,7 +7,7 @@ const HomeReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://cryptic-mesa-50717.herokuapp.com/reviews')
+        fetch('https://carget.onrender.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -50,7 +50,7 @@ const HomeReviews = () => {
                     centerMode: false,
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                     initialSlide: 1
+                    initialSlide: 1
                 }
             }
         ]
@@ -60,60 +60,60 @@ const HomeReviews = () => {
             <div className="container-fluid  my-5">
                 <div className="slider-section">
                     <Slider {...settings} className="slider">
-                            {
-                                reviews.map(review => <div className=" mt-3">
-                                    <div className="card review-card mx-auto" style={{ width: "35rem" , height: '23rem'}}>
-                                        <img src={review?.image} className="card-img-top" style={{ width: '15rem',height: "12rem", borderRadius: '50%' }} alt="..." />
-                                        <div className="card-body text-center review-text h-100">
-                                            <h2 className="card-title">{review?.displayName}</h2>
-                                            <p className="card-text" id="description">{review?.review}</p>
-                                            {review?.rating === 1 ?
+                        {
+                            reviews.map(review => <div className=" mt-3">
+                                <div className="card review-card mx-auto" style={{ width: "35rem", height: '23rem' }}>
+                                    <img src={review?.image} className="card-img-top" style={{ width: '15rem', height: "12rem", borderRadius: '50%' }} alt="..." />
+                                    <div className="card-body text-center review-text h-100">
+                                        <h2 className="card-title">{review?.displayName}</h2>
+                                        <p className="card-text" id="description">{review?.review}</p>
+                                        {review?.rating === 1 ?
+                                            <>
+                                                <FaStar color="#ffc107" />
+                                                <FaRegStar />
+                                                <FaRegStar />
+                                                <FaRegStar />
+                                                <FaRegStar />
+                                            </>
+                                            : review?.rating === 2 ?
                                                 <>
+                                                    <FaStar color="#ffc107" />
                                                     <FaStar color="#ffc107" />
                                                     <FaRegStar />
                                                     <FaRegStar />
                                                     <FaRegStar />
-                                                    <FaRegStar />
-                                                </>
-                                                : review?.rating === 2 ?
+                                                </> : review?.rating === 3 ?
                                                     <>
                                                         <FaStar color="#ffc107" />
                                                         <FaStar color="#ffc107" />
+                                                        <FaStar color="#ffc107" />
                                                         <FaRegStar />
                                                         <FaRegStar />
-                                                        <FaRegStar />
-                                                    </> : review?.rating === 3 ?
+                                                    </> : review?.rating === 4 ?
                                                         <>
                                                             <FaStar color="#ffc107" />
                                                             <FaStar color="#ffc107" />
                                                             <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
                                                             <FaRegStar />
-                                                            <FaRegStar />
-                                                        </> : review?.rating === 4 ?
-                                                            <>
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                                <FaRegStar />
-                                                            </> :
-                                                            <>
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                                <FaStar color="#ffc107" />
-                                                            </>
+                                                        </> :
+                                                        <>
+                                                            <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
+                                                            <FaStar color="#ffc107" />
+                                                        </>
 
-                                            }
-                                        </div>
+                                        }
                                     </div>
-                                </div>)
-                            }
-                        
+                                </div>
+                            </div>)
+                        }
+
                     </Slider>
                 </div>
-              
+
 
             </div>
 

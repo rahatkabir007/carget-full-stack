@@ -134,7 +134,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://cryptic-mesa-50717.herokuapp.com/users', {
+        fetch('https://carget.onrender.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -146,7 +146,7 @@ const useFirebase = () => {
     //assigning admin functionality
 
     useEffect(() => {
-        fetch(`https://cryptic-mesa-50717.herokuapp.com/users/${user.email}`)
+        fetch(`https://carget.onrender.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

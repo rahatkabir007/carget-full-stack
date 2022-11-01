@@ -10,7 +10,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('https://cryptic-mesa-50717.herokuapp.com/orders')
+        fetch('https://carget.onrender.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -21,7 +21,7 @@ const MyOrder = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to cancel your order?');
         if (proceed) {
-            const url = `https://cryptic-mesa-50717.herokuapp.com/orders/${id}`;
+            const url = `https://carget.onrender.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -48,9 +48,9 @@ const MyOrder = () => {
                     <img className="w-75 mx-auto" src="https://image.freepik.com/free-vector/add-cart-concept-illustration_114360-1435.jpg" alt="" srcset="" />
                 </div>
                     : matched?.length === 1 ? <h1 className="text-center">Hello! {user?.displayName}, You Have Ordered {matched?.length} Item!</h1> :
-                    <h1 className="text-center">Hello! {user?.displayName}, You Have Ordered {matched?.length} Items!</h1>
+                        <h1 className="text-center">Hello! {user?.displayName}, You Have Ordered {matched?.length} Items!</h1>
             }
-              
+
                 <hr />
                 <div className="container my-orders my-4">
                     <div className="row">

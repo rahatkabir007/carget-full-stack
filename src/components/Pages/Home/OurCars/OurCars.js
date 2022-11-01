@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const OurCars = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://cryptic-mesa-50717.herokuapp.com/products')
+        fetch('https://carget.onrender.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

@@ -21,7 +21,7 @@ const Review = () => {
         data.email = email;
         data.rating = rating;
         console.log(data);
-        axios.post('https://cryptic-mesa-50717.herokuapp.com/reviews', data)
+        axios.post('https://carget.onrender.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Your Review Has Been Submitted");
@@ -29,14 +29,14 @@ const Review = () => {
                 }
             })
     }
-    
+
     return (
         <div className="d-lg-flex align-items-center justify-content-center">
             <div>
                 <img className="w-100" src="https://image.freepik.com/free-vector/organic-flat-feedback-concept_52683-62653.jpg" alt="" />
             </div>
             <div className="my-5">
-                <h1 style={{ color: '#f18d4d', fontWeight: 'bolder'}}>Please Share Your Review!</h1>
+                <h1 style={{ color: '#f18d4d', fontWeight: 'bolder' }}>Please Share Your Review!</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-3 d-flex flex-column">
                     <textarea
                         style={{ height: '180px' }}
@@ -75,7 +75,7 @@ const Review = () => {
                     <input type="submit" value="Share Review" className="secondary-btn my-2 mx-auto w-50" id="place-order-btn" />
                 </form>
             </div>
-       </div>
+        </div>
     );
 };
 
