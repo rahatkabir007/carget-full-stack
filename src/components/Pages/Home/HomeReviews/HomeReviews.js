@@ -7,7 +7,7 @@ const HomeReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://carget.onrender.com/reviews')
+        fetch('https://carget-full-stack-server-production.up.railway.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

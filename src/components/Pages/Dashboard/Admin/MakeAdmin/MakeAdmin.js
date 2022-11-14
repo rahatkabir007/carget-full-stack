@@ -15,7 +15,7 @@ const MakeAdmin = () => {
         const user = { email }
         const proceed = window.confirm('Are You Sure You Want To Assign Admin Role To This Email')
         if (proceed) {
-            fetch('https://carget.onrender.com/users/admin', {
+            fetch('https://carget-full-stack-server-production.up.railway.app/users/admin', {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

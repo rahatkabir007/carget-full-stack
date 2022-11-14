@@ -21,7 +21,7 @@ const Review = () => {
         data.email = email;
         data.rating = rating;
         console.log(data);
-        axios.post('https://carget.onrender.com/reviews', data)
+        axios.post('https://carget-full-stack-server-production.up.railway.app/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Your Review Has Been Submitted");
