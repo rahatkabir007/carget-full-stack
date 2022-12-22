@@ -10,7 +10,7 @@ const AddProducts = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        axios.post('https://carget-full-stack-server-production.up.railway.app/products', data)
+        axios.post('https://carget-full-stack-server.vercel.app/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Successfully Added");
