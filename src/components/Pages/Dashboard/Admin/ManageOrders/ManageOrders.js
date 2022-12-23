@@ -12,7 +12,7 @@ const ManageOrders = () => {
 
 
     useEffect(() => {
-        fetch('https://carget-full-stack-server.vercel.app/orders')
+        fetch('https://carget.onrender.com/orders')
             .then(res => res.json())
             .then(data => setManageOrders(data))
     }, [])
@@ -23,7 +23,7 @@ const ManageOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this order?');
         if (proceed) {
-            const url = `https://carget-full-stack-server.vercel.app/orders/${id}`;
+            const url = `https://carget.onrender.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
@@ -40,7 +40,7 @@ const ManageOrders = () => {
     }
 
     const handleUpdate = (id) => {
-        fetch(`https://carget-full-stack-server.vercel.app/updateStatus/${id}`, {
+        fetch(`https://carget.onrender.com/updateStatus/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

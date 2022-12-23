@@ -7,7 +7,7 @@ const HomeReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://carget-full-stack-server.vercel.app/reviews')
+        fetch('https://carget.onrender.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
