@@ -8,7 +8,7 @@ import Navigation from '../Shared/Navigation/Navigation';
 const Explore = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://carget.onrender.com/products')
+        fetch(`${process.env.REACT_APP_API_LINK}/products`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

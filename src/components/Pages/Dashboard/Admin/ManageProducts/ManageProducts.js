@@ -5,7 +5,7 @@ import { Spinner } from 'react-bootstrap';
 const ManageProducts = () => {
     const [products, setproducts] = useState([]);
     useEffect(() => {
-        fetch('https://carget.onrender.com/products')
+        fetch(`${process.env.REACT_APP_API_LINK}/products`)
             .then(res => res.json())
             .then(data => setproducts(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete this product?');
         if (proceed) {
-            const url = `https://carget.onrender.com/products/${id}`;
+            const url = `${process.env.REACT_APP_API_LINK}/products/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

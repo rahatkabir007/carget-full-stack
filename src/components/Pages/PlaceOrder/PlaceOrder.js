@@ -19,7 +19,7 @@ const PlaceOrder = () => {
         data.status = "PENDING";
         data.description = productDetails?.description;
         console.log(data);
-        axios.post('https://carget.onrender.com/placeOrders', data)
+        axios.post(`${process.env.REACT_APP_API_LINK}/placeOrders`, data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Your Order Has Been Booked");
@@ -29,7 +29,7 @@ const PlaceOrder = () => {
     }
 
     useEffect(() => {
-        fetch(`https://carget.onrender.com/selectedproduct/${productId}`)
+        fetch(`${process.env.REACT_APP_API_LINK}/selectedproduct/${productId}`)
             .then(res => res.json())
             .then(data => setProductDetails(data));
     }, [productId])

@@ -48,38 +48,38 @@ function App() {
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
             <PrivateRoute path='/dashboard'>
-             <Dashboard></Dashboard>
+              <Dashboard></Dashboard>
             </PrivateRoute>
             <PrivateRoute path='/dashboardhome'>
               <DashboardHome></DashboardHome>
             </PrivateRoute>
             <PrivateRoute path='/myorder'>
-             <MyOrder></MyOrder>
+              <MyOrder></MyOrder>
             </PrivateRoute>
             <PrivateRoute path='/review'>
-             <Review></Review>
+              <Review></Review>
             </PrivateRoute>
             <PrivateRoute path='/pay'>
-            <Pay></Pay>
+              <Pay></Pay>
             </PrivateRoute>
             <AdminRoute path='/addproducts'>
-           <AddProducts></AddProducts>
+              <AddProducts></AddProducts>
             </AdminRoute>
             <AdminRoute path='/makeadmin'>
-            <MakeAdmin></MakeAdmin>
+              <MakeAdmin></MakeAdmin>
             </AdminRoute>
             <AdminRoute path='/manageorders'>
-            <ManageOrders></ManageOrders>
+              <ManageOrders></ManageOrders>
             </AdminRoute>
             <AdminRoute path='/manageproducts'>
-            <ManageProducts></ManageProducts>
+              <ManageProducts></ManageProducts>
             </AdminRoute>
             <Route path='*'>
               <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>
-     </AuthProvider>
+      </AuthProvider>
     </div>
   );
 }

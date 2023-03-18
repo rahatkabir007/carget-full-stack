@@ -134,7 +134,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://carget.onrender.com/users', {
+        fetch(`${process.env.REACT_APP_API_LINK}/users`, {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -146,7 +146,7 @@ const useFirebase = () => {
     //assigning admin functionality
 
     useEffect(() => {
-        fetch(`https://carget.onrender.com/users/${user.email}`)
+        fetch(`${process.env.REACT_APP_API_LINK}/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

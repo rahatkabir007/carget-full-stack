@@ -10,7 +10,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('https://carget.onrender.com/orders')
+        fetch(`${process.env.REACT_APP_API_LINK}/orders`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -21,7 +21,7 @@ const MyOrder = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to cancel your order?');
         if (proceed) {
-            const url = `https://carget.onrender.com/orders/${id}`;
+            const url = `${process.env.REACT_APP_API_LINK}/orders/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

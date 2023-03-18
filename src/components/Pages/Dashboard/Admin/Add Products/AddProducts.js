@@ -10,7 +10,7 @@ const AddProducts = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        axios.post('https://carget.onrender.com/products', data)
+        axios.post(`${process.env.REACT_APP_API_LINK}/products`, data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Successfully Added");
